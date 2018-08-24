@@ -1,0 +1,9 @@
+<div fxFlexFill>
+    <div *ngIf="this.userScore !== undefined" fxLayout="row">
+        <div fxFlex="0 0 auto"><span>{{userScore.name}}&nbsp;</span></div>
+        <div fxFlex="0 0 auto">({{userScore.wins}} - {{userScore.losses}})</div>
+    </div>
+    <div *ngIf="this.userScore === undefined">
+        <span>UNDEFINED</span>
+    </div>
+</div>
