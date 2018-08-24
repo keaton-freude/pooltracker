@@ -1,11 +1,13 @@
-<!-- <div>
-    <div fxLayout="row">
-        <pa-user-score [userScore]="this.user1"></pa-user-score>
-        <span>&nbsp;-&nbsp;</span>
-        <pa-user-score [userScore]="this.user2"></pa-user-score>
+<div class="mat-typography">
+    <!-- app container -->
+    <div style="margin: 1em" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="center">
+            <pa-user-score [userScore]="this.user1"></pa-user-score>
+            <h2>&nbsp;&nbsp;-&nbsp;&nbsp;</h2>
+            <pa-user-score [userScore]="this.user2"></pa-user-score>
+        </div>
+        <div fxLayoutAlign="center" style="margin-top: 3em">
+            <pa-game-score></pa-game-score>
+        </div>
     </div>
-</div> -->
-
-<div>
-    <pa-game-score></pa-game-score>
 </div>
