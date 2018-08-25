@@ -1,3 +1,16 @@
-<p>
-  add-score works!
-</p>
+<div fxLayout="column" fxFlex fxLayoutAlign="start center">
+    <h1>Submit Score</h1>
+    <form fxLayout="column" fxFlex fxFlexFill>
+        <div fxLayout="row" fxFlex>
+            <div fxFlex="30%" style="background: lightgreen">
+                <span class="mat-input">Winner:</span>
+            </div>
+            <div fxFlex>
+                <mat-button-toggle-group fxLayout="row " fxLayoutAlign=" " name="winner-group ">
+                    <mat-button-toggle fxFlex color="primary " value="Chris ">Chris</mat-button-toggle>
+                    <mat-button-toggle fxFlex value="Keaton ">Keaton</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+        </div>
+    </form>
+</div>

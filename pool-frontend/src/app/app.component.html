@@ -1,13 +1,28 @@
-<div class="mat-typography">
-    <!-- app container -->
-    <div style="padding: 1em;" fxLayout="column">
-        <div fxLayout="row" fxLayoutAlign="center">
+<div fxFlexFill class="mat-typography">
+    <div fxLayout="column" fxFlexFill fxLayoutAlign="center center">
+        <div fxFlex="0 0 auto" fxLayout="row">
             <pa-user-score [userScore]="this.user1"></pa-user-score>
             <h2>&nbsp;&nbsp;-&nbsp;&nbsp;</h2>
             <pa-user-score [userScore]="this.user2"></pa-user-score>
         </div>
-        <div fxLayoutAlign="center" style="margin-top: 3em">
+        <div fxFlex="0 0 auto" fxLayout="column">
             <pa-game-score></pa-game-score>
         </div>
+        <div fxFlex fxFlexFill>
+            <pa-add-score fxLayout="column" fxFlex></pa-add-score>
+            <!-- <div fxLayout="column" fxFlex style="background: pink">ITEM</div> -->
+        </div>
+        <!-- <div fxFlex style="background: cornflowerblue">ITEM #1</div>
+        <div fxFlex style="background: lightgreen">ITEM #2</div>
+        <div fxFlex style="background: lightpink">ITEM #3</div> -->
     </div>
 </div>
+<!-- <div fxLayout="column">
+    <div>
+        SOMETHING
+    </div>
+    <span style="font-size: 64px">LARGE FONT</span>
+    <div>
+        SOMETHING ELSE
+    </div>
+</div> -->
