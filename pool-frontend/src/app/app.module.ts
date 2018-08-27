@@ -7,7 +7,12 @@ import { GameScoreComponent } from "./game-score/game-score.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AddScoreComponent } from "./add-score/add-score.component";
 import { FormsModule } from "@angular/forms";
-import { MatButtonToggleModule } from "@angular/material";
+import {
+    MatButtonToggleModule,
+    MatRadioModule,
+    MatButtonModule
+} from "@angular/material";
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -20,7 +25,9 @@ import { MatButtonToggleModule } from "@angular/material";
         FlexLayoutModule,
         BrowserAnimationsModule,
         FormsModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatRadioModule,
+        MatButtonModule
     ],
     providers: [],
     bootstrap: [AppComponent]
