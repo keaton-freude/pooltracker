@@ -1,6 +1,7 @@
-import { Get, Controller } from '@nestjs/common';
+import { Get, Controller, Post, Body } from '@nestjs/common';
 import { ScoresService } from './scores-service';
 import { Router } from 'express';
+import { AddScoreModel } from './add-score.model';
 
 @Controller('scores')
 export class ScoresController {
@@ -12,8 +13,13 @@ export class ScoresController {
     }
 
     @Get('all')
-    async findAllScores(): string {
+    async findAllScores() {
         const scores = await this.scoresService.FindAllScores();
-        return JSON.stringify(scores);
+        return scores;
+    }
+
+    @Post()
+    async create(@Body() addScore: AddScoreModel) {
+        this.scoresService.addScore(addScore);
     }
 }
