@@ -1,0 +1,12 @@
+import { Module } from '@nestjs/common';
+import { ScoresController } from './scores-controller';
+import { ScoresService } from './scores-service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Score } from './scores.entity';
+
+@Module({
+    imports: [TypeOrmModule.forFeature([Score])],
+    controllers: [ScoresController],
+    providers: [ScoresService],
+})
+export class PoolScoringModule {}
