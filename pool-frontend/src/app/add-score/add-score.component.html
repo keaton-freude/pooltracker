@@ -1,13 +1,13 @@
 <div fxLayout="column" fxFlex fxLayoutAlign="start center">
     <h1>Submit Score</h1>
-    <form fxLayout="column" fxFlex fxFlexFill fxLayoutGap="2em">
+    <form fxLayout="column" fxFlex fxFlexFill fxLayoutGap="2em" #scoreForm="ngForm" (ngSubmit)="onSubmit()">
         <div fxLayout="row">
             <div fxFlex="40%">
                 <span fxFlex class="form-label">Winner</span>
             </div>
             <div fxFlex>
                 <div fxLayout="row" class="form-option">
-                    <mat-radio-group fxLayout="row" fxFlex>
+                    <mat-radio-group [(ngModel)]="this.score.winner" name="winner" fxLayout="row" fxFlex required>
                         <mat-radio-button fxFlex value="Chris">Chris</mat-radio-button>
                         <mat-radio-button fxFlex value="Keaton">Keaton</mat-radio-button>
                     </mat-radio-group>
@@ -20,7 +20,7 @@
             </div>
             <div fxFlex>
                 <div fxLayout="row" class="form-option">
-                    <mat-radio-group fxLayout="row" fxFlex>
+                    <mat-radio-group [(ngModel)]="this.score.breaker" name="breaker" fxLayout="row" fxFlex required>
                         <mat-radio-button fxFlex value="Chris">Chris</mat-radio-button>
                         <mat-radio-button fxFlex value="Keaton">Keaton</mat-radio-button>
                     </mat-radio-group>
@@ -33,7 +33,7 @@
             </div>
             <div fxFlex>
                 <div fxLayout="row" class="form-option">
-                    <mat-radio-group fxLayout="row" fxFlex>
+                    <mat-radio-group [(ngModel)]="this.score.stripes" name="stripes" fxLayout="row" fxFlex required>
                         <mat-radio-button fxFlex value="Chris">Chris</mat-radio-button>
                         <mat-radio-button fxFlex value="Keaton">Keaton</mat-radio-button>
                     </mat-radio-group>
@@ -46,9 +46,9 @@
             </div>
             <div fxFlex>
                 <div fxLayout="row" class="form-option">
-                    <mat-radio-group fxLayout="row" fxFlex>
-                        <mat-radio-button fxFlex value="Yes">Yes</mat-radio-button>
-                        <mat-radio-button fxFlex value="No">No</mat-radio-button>
+                    <mat-radio-group [(ngModel)]="this.score.beatSelf" name="beatSelf" fxLayout="row" fxFlex required>
+                        <mat-radio-button fxFlex value="true">Yes</mat-radio-button>
+                        <mat-radio-button fxFlex value="false">No</mat-radio-button>
                     </mat-radio-group>
                 </div>
             </div>
@@ -59,7 +59,7 @@
             </div>
             <div fxFlex>
                 <div fxLayout="row" class="form-option">
-                    <mat-radio-group fxLayout="row" fxFlex>
+                    <mat-radio-group [(ngModel)]="this.score.easyPocket" name="easyPocket" fxLayout="row" fxFlex required>
                         <mat-radio-button fxFlex value="Yes">Yes</mat-radio-button>
                         <mat-radio-button fxFlex value="No">No</mat-radio-button>
                     </mat-radio-group>
@@ -72,14 +72,14 @@
             </div>
             <div fxFlex>
                 <div fxLayout="row" class="form-option">
-                    <mat-slider #slider fxFlex="80%" min="0" max="7" step="1" value="0" tickInterval="1"></mat-slider>
+                    <mat-slider #slider fxFlex="80%" min="0" max="7" step="1" value="0" tickInterval="1" [(ngModel)]="this.score.ballsLeft" name="ballsLeft" required></mat-slider>
                     <label>{{slider.value}}</label>
                 </div>
             </div>
         </div>
         <div fxLayout="row" style="height: 15%">
             <div fxFlex></div>
-            <button fxFlex="50%" color="accent" mat-raised-button>SUBMIT</button>
+            <button fxFlex="50%" type="submit" color="accent" (submit)="onSubmit(); scoreForm.form.reset();" mat-raised-button [disabled]="!scoreForm.form.valid">SUBMIT</button>
             <div fxFlex></div>
         </div>
     </form>

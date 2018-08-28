@@ -1,11 +1,11 @@
 export class AddScore {
     constructor(
         public winner?: string,
-        breaker?: string,
-        stripes?: string,
-        solids?: string,
-        beatSelf?: boolean,
-        easyPocket?: boolean,
-        ballsLeft?: number
+        public breaker?: string,
+        public stripes?: string,
+        public solids?: string,
+        public beatSelf?: boolean,
+        public easyPocket?: boolean,
+        public ballsLeft?: number
     ) {}
 }
