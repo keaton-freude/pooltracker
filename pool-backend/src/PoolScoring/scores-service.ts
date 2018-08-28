@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Score } from './scores.entity';
-import { Repository } from 'typeorm';
+import { Repository, MoreThan } from 'typeorm';
 import { AddScoreModel } from './add-score.model';
+import { WinsPerUserModel } from './wins-per-user.model';
 
 @Injectable()
 export class ScoresService {
@@ -26,5 +27,23 @@ export class ScoresService {
             stripes: addScoreModel.stripes,
         };
         await this.scoresRepository.save(score);
+    }
+
+    async GetWinsPerUserSinceId(id: number): Promise<WinsPerUserModel> {
+        // Get the number of wins for Keaton, Then Chris
+        const keatonWins = await this.scoresRepository.find({
+            id: MoreThan(id),
+            winner: 'Keaton',
+        });
+
+        const chrisWins = await this.scoresRepository.find({
+            id: MoreThan(id),
+            winner: 'Chris',
+        });
+
+        return {
+            chrisWins: chrisWins.length,
+            keatonWins: keatonWins.length,
+        };
     }
 }
