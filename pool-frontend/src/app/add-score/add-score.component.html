@@ -66,6 +66,21 @@
                 </div>
             </div>
         </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxFlex="40%">
+                <span fxFlex class="form-label">Balls Left</span>
+            </div>
+            <div fxFlex>
+                <div fxLayout="row" class="form-option">
+                    <mat-slider #slider fxFlex="80%" min="0" max="7" step="1" value="0" tickInterval="1"></mat-slider>
+                    <label>{{slider.value}}</label>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" style="height: 15%">
+            <div fxFlex></div>
+            <button fxFlex="50%" color="accent" mat-raised-button>SUBMIT</button>
+            <div fxFlex></div>
+        </div>
     </form>
-    <button mat-raised-button>SUBMIT</button>
 </div>

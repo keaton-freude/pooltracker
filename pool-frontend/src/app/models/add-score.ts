@@ -4,8 +4,8 @@ export class AddScore {
         breaker?: string,
         stripes?: string,
         solids?: string,
-        beatSelf?: string,
-        easyPocket?: string,
+        beatSelf?: boolean,
+        easyPocket?: boolean,
         ballsLeft?: number
     ) {}
 }

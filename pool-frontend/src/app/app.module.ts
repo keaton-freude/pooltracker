@@ -10,7 +10,8 @@ import { FormsModule } from "@angular/forms";
 import {
     MatButtonToggleModule,
     MatRadioModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSliderModule
 } from "@angular/material";
 
 @NgModule({
@@ -27,7 +28,8 @@ import {
         FormsModule,
         MatButtonToggleModule,
         MatRadioModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSliderModule
     ],
     providers: [],
     bootstrap: [AppComponent]

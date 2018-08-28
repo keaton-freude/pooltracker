@@ -1,18 +1,16 @@
-<div>
-    <div fxLayout="row">
-        <div fxFlex="0 0 auto" class="pa-userscore-name">
-            <span class="mat-headline">
-                {{userScore.name}}&nbsp;
-            </span>
-        </div>
-        <div fxFlex="0 0 auto">
-            <span class="mat-headline">
-                &nbsp;({{userScore.wins}} - {{userScore.losses}})
-            </span>
-        </div>
+<div fxLayout="row">
+    <div fxFlex="0 0 auto" class="pa-userscore-name">
+        <span class="mat-headline">
+            {{userScore.name}}&nbsp;
+        </span>
     </div>
+    <div fxFlex="0 0 auto">
+        <span class="mat-headline">
+            &nbsp;({{userScore.wins}} - {{userScore.losses}})
+        </span>
+    </div>
+</div>
 
-    <div *ngIf="this.userScore === undefined">
-        <span>UNDEFINED</span>
-    </div>
+<div *ngIf="this.userScore === undefined">
+    <span>UNDEFINED</span>
 </div>
