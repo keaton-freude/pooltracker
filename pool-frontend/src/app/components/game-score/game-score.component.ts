@@ -8,7 +8,7 @@ import { mockGameScore } from "../../mock-data/mock-game-score";
     styleUrls: ["./game-score.component.css"]
 })
 export class GameScoreComponent implements OnInit {
-    protected currentScore: GameScore = mockGameScore;
+    public currentScore: GameScore = mockGameScore;
     constructor() {}
 
     ngOnInit() {}

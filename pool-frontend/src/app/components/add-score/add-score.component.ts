@@ -7,7 +7,7 @@ import { AddScore } from "../../models/add-score";
     styleUrls: ["./add-score.component.css"]
 })
 export class AddScoreComponent implements OnInit {
-    protected score: AddScore;
+    public score: AddScore;
     submitted = false;
     constructor() {
         this.score = new AddScore();
