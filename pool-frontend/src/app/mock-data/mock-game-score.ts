@@ -1,4 +1,4 @@
-import { GameScore } from "../app/models/game-score";
+import { GameScore } from "../models/game-score";
 
 export const mockGameScore: GameScore = {
     chrisScore: 9,

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { UserScore } from "../models/user-score";
+import { UserScore } from "../../models/user-score";
 
 @Component({
     selector: "pa-user-score",

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AddScore } from "../models/add-score";
+import { AddScore } from "../../models/add-score";
 
 @Component({
     selector: "pa-add-score",

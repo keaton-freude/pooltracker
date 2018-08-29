@@ -1,4 +1,4 @@
-import { UserScore } from "../app/models/user-score";
+import { UserScore } from "../models/user-score";
 
 export const mockUser1: UserScore = {
     name: "Keaton",
@@ -11,3 +11,4 @@ export const mockUser2: UserScore = {
     wins: 7,
     losses: 30
 };
+//

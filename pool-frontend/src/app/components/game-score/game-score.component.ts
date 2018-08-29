@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { GameScore } from "../models/game-score";
+import { GameScore } from "../../models/game-score";
 import { mockGameScore } from "../../mock-data/mock-game-score";
 
 @Component({
