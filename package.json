@@ -12,7 +12,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "postinstall": "ng build --aot --prod",
+        "postinstall": "npm run config -- --environment=prod && ng build --aot --prod",
         "start:local": "npm run config -- --environment=dev && ng serve",
         "config": "ts-node ./scripts/set-env.ts"
     },
