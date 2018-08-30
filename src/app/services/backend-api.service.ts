@@ -19,14 +19,13 @@ export class BackendApi {
         }
 
         if (environment.BACKEND_API_PORT === undefined) {
-            throw Error(
-                "You must set the environment variable BACKEND_API_PORT"
-            );
+            // just omit the port
+            this.baseUrl = `${environment.BACKEND_API_HOST}`;
+        } else {
+            this.baseUrl = `${environment.BACKEND_API_HOST}:${
+                environment.BACKEND_API_PORT
+            }`;
         }
-
-        this.baseUrl = `${environment.BACKEND_API_HOST}:${
-            environment.BACKEND_API_PORT
-        }`;
     }
 
     get<T>(path: string): Observable<T> {
