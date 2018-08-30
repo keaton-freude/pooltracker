@@ -8,6 +8,6 @@ import { mockUser1, mockUser2 } from "./mock-data/mock-user-score";
     styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-    public user1: UserScore = mockUser2;
-    public user2: UserScore = mockUser1;
+    public user1: UserScore = new UserScore("Chris");
+    public user2: UserScore = new UserScore("Keaton");
 }
