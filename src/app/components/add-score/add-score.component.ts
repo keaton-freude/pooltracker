@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { Score } from "../../models/add-score";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { Score } from "../../models/score";
 import { ScoresService } from "../../services/scores.service";
 
 @Component({
@@ -8,6 +8,8 @@ import { ScoresService } from "../../services/scores.service";
     styleUrls: ["./add-score.component.css"]
 })
 export class AddScoreComponent implements OnInit {
+    @ViewChild("scoreForm")
+    scoreForm;
     public score: Score;
     submitted = false;
     constructor(private scoresService: ScoresService) {
@@ -17,16 +19,22 @@ export class AddScoreComponent implements OnInit {
     ngOnInit() {}
 
     onSubmit() {
-        // after successful submit, clear the state
-        this.score = new Score();
+        if (this.score.stripes === "Keaton") {
+            this.score.solids = "Chris";
+        } else {
+            this.score.solids = "Keaton";
+        }
 
+        console.log(this.score);
         this.scoresService
-            .getAllScores()
-            .then(scores => {
-                console.log(`Got scores: ${scores}`);
+            .submitScore(this.score)
+            .then(res => {
+                console.log("Submitted score successfully.");
+                this.score = new Score();
+                this.scoreForm.reset();
             })
             .catch(err => {
-                console.log(`Error: ${err}`);
+                console.log(`Error submitting score: ${JSON.stringify(err)}`);
             });
     }
 }

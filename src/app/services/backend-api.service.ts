@@ -33,4 +33,8 @@ export class BackendApi {
         console.log(`$Url to be sent ${this.baseUrl}${path}`);
         return this.http.get<T>(`${this.baseUrl}${path}`);
     }
+
+    post<T>(path: string, body: T) {
+        return this.http.post(`${this.baseUrl}${path}`, body);
+    }
 }
