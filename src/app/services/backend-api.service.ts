@@ -18,7 +18,11 @@ export class BackendApi {
             );
         }
 
-        if (environment.BACKEND_API_PORT === undefined) {
+        if (
+            environment.BACKEND_API_PORT === undefined ||
+            environment.BACKEND_API_PORT === "undefined" ||
+            environment.BACKEND_API_PORT === null
+        ) {
             // just omit the port
             this.baseUrl = `${environment.BACKEND_API_HOST}`;
         } else {
