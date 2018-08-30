@@ -13,6 +13,7 @@ import {
     MatButtonModule,
     MatSliderModule
 } from "@angular/material";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import {
         MatButtonToggleModule,
         MatRadioModule,
         MatButtonModule,
-        MatSliderModule
+        MatSliderModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

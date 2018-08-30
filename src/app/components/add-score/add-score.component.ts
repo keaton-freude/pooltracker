@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { AddScore } from "../../models/add-score";
+import { Score } from "../../models/add-score";
+import { ScoresService } from "../../services/scores.service";
 
 @Component({
     selector: "pa-add-score",
@@ -7,19 +8,25 @@ import { AddScore } from "../../models/add-score";
     styleUrls: ["./add-score.component.css"]
 })
 export class AddScoreComponent implements OnInit {
-    public score: AddScore;
+    public score: Score;
     submitted = false;
-    constructor() {
-        this.score = new AddScore();
+    constructor(private scoresService: ScoresService) {
+        this.score = new Score();
     }
 
     ngOnInit() {}
 
     onSubmit() {
-        console.log("Submitting score.");
-        console.log(`${JSON.stringify(this.score)}`);
-
         // after successful submit, clear the state
-        this.score = new AddScore();
+        this.score = new Score();
+
+        this.scoresService
+            .getAllScores()
+            .then(scores => {
+                console.log(`Got scores: ${scores}`);
+            })
+            .catch(err => {
+                console.log(`Error: ${err}`);
+            });
     }
 }

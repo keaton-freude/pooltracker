@@ -1,4 +1,4 @@
-export class AddScore {
+export class Score {
     constructor(
         public winner?: string,
         public breaker?: string,
