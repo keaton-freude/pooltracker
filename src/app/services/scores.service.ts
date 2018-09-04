@@ -15,6 +15,15 @@ export class ScoresService {
     private currentScore: Subject<GameScore> = new Subject<GameScore>();
     private overallScore: Subject<OverallScore> = new Subject<OverallScore>();
 
+    // NOTE: We should replace this sort of thing with something like socket.io
+    // But we'll keep track of the overallScore, whenever it changes, we'll find out who won
+    // then emit an event on 'winnerName' with the name of the winner, so the UI can notify
+    private _overallScore = new OverallScore();
+    private _first = true;
+
+    // Denotes when someone wins! Subscribe to this and do something cool when someone wins
+    private winnerName: Subject<string> = new Subject<string>();
+
     public getAllScores(): Promise<Score[]> {
         return this.api.get<Score[]>("/scores").toPromise();
     }
@@ -26,6 +35,7 @@ export class ScoresService {
                 .toPromise()
                 .then(() => {
                     this.updateCurrentScore();
+                    this.updateOverallScore();
                     resolve();
                 })
                 .catch(err => {
@@ -36,6 +46,10 @@ export class ScoresService {
 
     public getCurrentScore(): Observable<GameScore> {
         return this.currentScore.asObservable();
+    }
+
+    public getWinnerName(): Observable<string> {
+        return this.winnerName.asObservable();
     }
 
     public updateCurrentScore() {
@@ -60,6 +74,24 @@ export class ScoresService {
             .toPromise()
             .then(score => {
                 this.overallScore.next(score);
+                if (this._first) {
+                    this._first = false;
+                } else {
+                    if (
+                        this._overallScore.chrisWins === score.chrisWins &&
+                        this._overallScore.keatonWins === score.keatonWins
+                    ) {
+                        // It hasn't changed
+                    } else {
+                        // It's changed, emit the winner
+                        if (this._overallScore.chrisWins === score.chrisWins) {
+                            this.winnerName.next("Keaton");
+                        } else {
+                            this.winnerName.next("Chris");
+                        }
+                    }
+                }
+                this._overallScore = score;
             })
             .catch(err => {
                 console.log("Error getting overall score...");

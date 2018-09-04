@@ -1,6 +1,6 @@
 
 export const environment = {
-  production: true,
-  BACKEND_API_HOST: 'undefined',
-  BACKEND_API_PORT: 'undefined'
+  production: false,
+  BACKEND_API_HOST: 'http://192.168.1.115',
+  BACKEND_API_PORT: '3000'
 };
