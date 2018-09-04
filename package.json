@@ -8,11 +8,13 @@
     "scripts": {
         "ng": "ng",
         "start": "node server.js",
-        "build": "ng build",
+        "build": "npm run config -- --environment=prod && ng build",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "postinstall": "ng build --aot --prod"
+        "postinstall": "npm run config -- --environment=prod && ng build --aot --prod",
+        "start:local": "npm run config -- --environment=dev && ng serve",
+        "config": "ts-node ./scripts/set-env.ts"
     },
     "private": true,
     "dependencies": {
@@ -29,9 +31,11 @@
         "@angular/platform-browser-dynamic": "^6.0.3",
         "@angular/router": "^6.0.3",
         "core-js": "^2.5.4",
+        "dotenv": "^6.0.0",
         "express": "^4.16.3",
         "reflect-metadata": "^0.1.12",
         "rxjs": "^6.2.2",
+        "yargs": "^12.0.1",
         "zone.js": "^0.8.26"
     },
     "devDependencies": {
@@ -53,6 +57,6 @@
         "protractor": "^5.4.0",
         "ts-node": "~5.0.1",
         "tslint": "~5.9.1",
-        "typescript": "~2.7.2"
+        "typescript": "~2.9.0"
     }
 }

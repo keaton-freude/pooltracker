@@ -11,8 +11,10 @@ import {
     MatButtonToggleModule,
     MatRadioModule,
     MatButtonModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSnackBarModule
 } from "@angular/material";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -29,7 +31,9 @@ import {
         MatButtonToggleModule,
         MatRadioModule,
         MatButtonModule,
-        MatSliderModule
+        MatSliderModule,
+        HttpClientModule,
+        MatSnackBarModule
     ],
     providers: [],
     bootstrap: [AppComponent]

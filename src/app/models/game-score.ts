@@ -1,3 +1,3 @@
 export class GameScore {
-    constructor(public keatonScore: number, public chrisScore: number) {}
+    constructor(public chrisWins: number, public keatonWins: number) {}
 }
